@@ -1,0 +1,27 @@
+{
+	"manifest_version": 2,
+	"name": "打工人",
+	"version": "0.0.1",
+	"description": "打工人的工具箱",
+	"content_scripts": [
+		{
+			"matches": [
+				"https://juejin.cn/*"
+			],
+			"js": [
+				"js/index.js"
+			],
+			"run_at": "document_end"
+		}
+	],
+	"permissions": [
+		"webRequest",
+		"webRequestBlocking",
+		"storage",
+		"http://*/*",
+		"https://*/*"
+	],
+	"web_accessible_resources": [],
+	"homepage_url": "https://github.com/ezshine/chrome-extension-catroom",
+	"chrome_url_overrides": {}
+}
