@@ -1,5 +1,5 @@
 {
-	"manifest_version": 2,
+	"manifest_version": 3,
 	"name": "打工人",
 	"version": "0.0.1",
 	"description": "打工人的工具箱",
@@ -14,13 +14,16 @@
 			"run_at": "document_end"
 		}
 	],
-	"permissions": [
-		"webRequest",
-		"webRequestBlocking",
-		"storage",
-		"http://*/*",
-		"https://*/*"
-	],
+	"permissions": [],
+	"action": {
+		"default_icon": {
+			"16": "imgs/james.png",
+			"24": "imgs/james.png",
+			"32": "imgs/james.png"
+		},
+		"default_title": "中国人不卷中国人",
+		"default_popup": "popup.html"
+	},
 	"web_accessible_resources": [],
 	"homepage_url": "https://github.com/ezshine/chrome-extension-catroom",
 	"chrome_url_overrides": {}
