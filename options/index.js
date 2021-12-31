@@ -1,46 +1,46 @@
-let page = document.getElementById("buttonDiv");
+let container = document.getElementById("buttonDiv");
 let selectedClassName = "current";
 const presetButtonColors = ["#3aa757", "#e8453c", "#f9bb2d", "#4688f1"];
 
-// Reacts to a button click by marking the selected button and saving
-// the selection
+// 点击某个按钮，移除上之前元素的 current，给当前元素添加 current
 function handleButtonClick(event) {
-  // Remove styling from the previously selected color
+  // 找到之前添加的 current
   let current = event.target.parentElement.querySelector(
     `.${selectedClassName}`
   );
+  // 如果之前添加 current 不是当前点击的，移除之前添加的 current
   if (current && current !== event.target) {
     current.classList.remove(selectedClassName);
   }
 
-  // Mark the button as selected
+  // 拿到点击按钮的颜色
   let color = event.target.dataset.color;
+  // 给当前按钮添加 current 类
   event.target.classList.add(selectedClassName);
+  // 将当前颜色存到插件缓存
   chrome.storage.sync.set({ color });
 }
 
-// Add a button to the page for each supplied color
-function constructOptions(buttonColors) {
+// 根据颜色创建按钮
+function initOptions(buttonColors) {
   chrome.storage.sync.get("color", data => {
     let currentColor = data.color;
-    // For each color we were provided…
+    // 遍历颜色集，创建 button，给某个 button 添加 current
     for (let buttonColor of buttonColors) {
-      // …create a button with that color…
       let button = document.createElement("button");
       button.dataset.color = buttonColor;
       button.style.backgroundColor = buttonColor;
 
-      // …mark the currently selected color…
+      // 给 button 添加 current
       if (buttonColor === currentColor) {
         button.classList.add(selectedClassName);
       }
 
-      // …and register a listener for when that button is clicked
       button.addEventListener("click", handleButtonClick);
-      page.appendChild(button);
+      container.appendChild(button);
     }
   });
 }
 
-// Initialize the page by constructing the color options
-constructOptions(presetButtonColors);
+// 初始化
+initOptions(presetButtonColors);
