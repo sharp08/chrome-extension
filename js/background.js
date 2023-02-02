@@ -9,14 +9,14 @@ chrome.action.onClicked.addListener(async tab => {
     tabId: tab.id
   });
   // const nextState = prevState === "ON" ? "OFF" : "ON";
-  const nextState = "ON";
+  const nextState = "";
 
   await chrome.action.setBadgeText({
     tabId: tab.id,
     text: nextState
   });
 
-  if (nextState === "ON") {
+  if (nextState === "") {
     await chrome.scripting.executeScript({
       target: {
         tabId: tab.id

@@ -10,5 +10,7 @@
 
   const menuDom = document.querySelector(".bpx-player-ctrl-playbackrate-menu");
 
-  menuDom.innerHTML = str;
+  if (menuDom) {
+    menuDom.innerHTML = str;
+  }
 })();
