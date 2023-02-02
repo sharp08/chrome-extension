@@ -11,12 +11,14 @@
   "background": {
     "service_worker": "js/background.js"
   },
+  "icons": {
+    "48": "imgs/james.png"
+  },
   "action": {
     "default_icon": {
       "16": "imgs/james.png",
       "24": "imgs/james.png",
-      "32": "imgs/james.png",
-      "48": "imgs/james.png"
+      "32": "imgs/james.png"
     },
     "default_title": "中国人不卷中国人"
   }
