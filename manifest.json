@@ -11,6 +11,16 @@
   "background": {
     "service_worker": "js/background.js"
   },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.bilibili.com/*"
+      ],
+      "js": [
+        "js/content-script.js" 
+      ]
+    }
+  ],
   "icons": {
     "48": "imgs/james.png"
   },
